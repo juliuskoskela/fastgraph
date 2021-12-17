@@ -43,18 +43,6 @@ impl std::fmt::Display for Empty {
     }
 }
 
-pub type Frontier<K, N, E> = Vec<Weak<Edge<K, N, E>>>;
-
-pub trait Explorer<K, N, E>
-where
-    K: Hash + Eq + Clone + Debug + Display + Sync + Send,
-    N: Clone + Debug + Display + Sync + Send,
-    E: Clone + Debug + Display + Sync + Send,
-{
-	fn next_frontier(&self) -> Option<Frontier<K, N, E>>;
-	fn prev_frontier(&self) -> Option<Frontier<K, N, E>>;
-}
-
 const OPEN: bool = false;
 const CLOSED: bool = true;
 
